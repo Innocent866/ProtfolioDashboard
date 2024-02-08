@@ -10,7 +10,7 @@ const Login = () => {
     e.preventDefault()
     // const bodies = 
     try {
-      const user = await axios.post("http://localhost:3000/api/login",{
+      const user = await axios.post("https://portfolio-2slt.onrender.com/api/login",{
         email,
         password,
       });

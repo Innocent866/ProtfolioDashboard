@@ -15,7 +15,7 @@ const Register = () => {
       password,
     };
     try {
-      const user = await fetch("http://localhost:3000/api/new-user", {
+      const user = await fetch("https://portfolio-2slt.onrender.com/api/new-user", {
         method: "POST",
         headers: {
           "Content-Type": "application-json",

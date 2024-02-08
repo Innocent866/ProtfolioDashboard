@@ -9,7 +9,7 @@ const MessageView = () => {
   const getData = async () => {
     try {
       setLoad(true);
-      const message = await fetch("http://localhost:3000/api/getmessage", {
+      const message = await fetch("https://portfolio-2slt.onrender.com/api/getmessage", {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -32,7 +32,7 @@ const MessageView = () => {
   const handleDelete = async (_id) => {
     // e.preventDefault();
    
-       await axios.delete(`http://localhost:3000/api/delete/${_id}`)
+       await axios.delete(`https://portfolio-2slt.onrender.com/api/delete/${_id}`)
       .then(res => {
         window.location.reload()
         console.log('succes')
