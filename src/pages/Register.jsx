@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import toast from 'react-hot-toast';
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -9,26 +12,25 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const bodies = {
-      name,
-      email,
-      password,
-    };
+    // const bodies =;
     try {
-      const user = await fetch("https://portfolio-2slt.onrender.com/api/new-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application-json",
-        },
-        body: JSON.stringify(bodies),
+      const respond = await axios.post("https://portfolio-2slt.onrender.com/api/new-user",  {
+        name,
+        email,
+        password,
       });
-      const respond = await user.json();
       console.log(respond);
-      if(respond.message === 'Registration Successful'){
+      if(respond.data.success === true){
+          toast.success(respond.data.message)
         navigate('/MessageView')
       }
+
+      
     } catch (error) {
       console.log(error);
+      if(error.response.data.success === false){
+        toast.error(error.response.data.message)
+    }
     }
   };
   return (
@@ -48,7 +50,7 @@ const Register = () => {
         />
 
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           style={{ background: "#404040", color: "white" }}
           className="w-100 my-4 p-2"

@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import Register from './pages/Register'
 import MessageView from './pages/MessageView'
 import Login from './pages/Login'
+import { Toaster } from 'react-hot-toast';
+
 
 const App = () => {
   return (
@@ -14,6 +16,7 @@ const App = () => {
         <Route path='/Login' element={<Login/>}/>
       </Routes>
       </BrowserRouter>
+      <Toaster />
     </div>
   )
 }
