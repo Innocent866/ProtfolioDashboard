@@ -30,7 +30,7 @@ const MessageView = () => {
   }, []);
 
   const handleDelete = async (_id) => {
-    e.preventDefault();
+    // e.preventDefault();
    
        await axios.delete(`https://portfolio-2slt.onrender.com/api/delete/${_id}`)
       .then(res => {
@@ -64,7 +64,7 @@ const MessageView = () => {
                   className="d-flex justify-content-center "
                   onClick={()=>handleDelete(_id)}
                 >
-                  {/* <button className="btn btn-danger">Delete Message</button> */}
+                  <button className="btn btn-danger">Delete Message</button>
                 </div>
               </div>
             );
